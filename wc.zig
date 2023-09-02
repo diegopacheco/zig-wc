@@ -17,11 +17,11 @@ pub fn main() !void{
 }
 
 test "test count"{
-    var writer = std.io.getStdIn().writer();
-    writer.write("test 1\n");
-    writer.write("test 2\n");
+    var file = try std.fs.cwd().openFile("./example/file.txt", .{});
+    defer file.close();
+    var reader = file.reader();
     
-    var reader = std.io.getStdIn().reader();
-    const total:i64 = try wordCount(reader);
-    std.testing.expectEqual(2, total);
+    const expected:i64 = 5;
+    const result:i64 = try wordCount(reader);
+    try std.testing.expectEqual(expected, result);
 }
