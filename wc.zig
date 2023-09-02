@@ -17,11 +17,15 @@ pub const WordCounter = struct {
     }
 };
 
-pub fn main() !void{
+pub fn stdInWordCounter() !i64 {
     var reader = std.io.getStdIn().reader();
     const wc = WordCounter{};
-    const total:i64 = try wc.count(reader);
-    std.debug.print("{d}", .{total});
+    return try wc.count(reader);
+}
+
+pub fn main() !void{
+    const result:i64 = try stdInWordCounter();
+    std.debug.print("{d}", .{result});
 }
 
 test "test count"{
