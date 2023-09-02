@@ -1,6 +1,7 @@
 # zig-wc
 
-Simple lib that mimic linux wc but written in Zig by <a href="https://diegopacheco.github.io/">Diego Pacheco</a>
+Simple lib that mimic linux wc but written in Zig by <a href="https://diegopacheco.github.io/">Diego Pacheco</a> <br/>
+100% working with Zig 0.11.
 
 ## Build
 ```bash
