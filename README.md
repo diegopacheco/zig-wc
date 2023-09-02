@@ -24,3 +24,27 @@ cat example/file.txt | zig-out/bin/wc
 ```
 5
 ```
+
+### Usage as lib API
+```Zig
+const std = @import("std");
+const wc = @import("wc");
+
+pub fn main() !void {
+    var file = try std.fs.cwd().openFile("file.txt", .{});
+    defer file.close();
+    var reader = file.reader();
+
+    const counter = wc.WordCounter{};
+    const result: i64 = try counter.count(reader);
+    std.debug.print("file.txt count = {d}", .{result});
+}
+```
+#### Build and run the Example
+```bash
+cd example/
+zig build run
+```
+```bash
+file.txt count = 5%
+```
