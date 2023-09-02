@@ -3,7 +3,11 @@ const std = @import("std");
 pub fn wordCount(reader:anytype) !i64 {
     var count: i64 = 0;
     var buffer: [1024]u8 = undefined;
-    while (try reader.readUntilDelimiterOrEof(&buffer, '\n')) |line| {
+
+    var buf = std.io.bufferedReader(reader);
+    var r = buf.reader();
+    
+    while (try r.readUntilDelimiterOrEof(&buffer, '\n')) |line| {
         _ = line;
         count += 1;
     }
