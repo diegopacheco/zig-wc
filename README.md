@@ -4,7 +4,7 @@ Simple lib that mimic linux wc but written in Zig.
 
 ## Build
 ```bash
-zig build -Doptimize=ReleaseFast
+zig build
 ```
 
 ## Running it
