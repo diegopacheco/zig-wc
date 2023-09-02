@@ -1,6 +1,6 @@
 const std = @import("std");
 
-fn wordCount(reader:anytype) !i64 {
+pub fn wordCount(reader:anytype) !i64 {
     var count: i64 = 0;
     var buffer: [1024]u8 = undefined;
     while (try reader.readUntilDelimiterOrEof(&buffer, '\n')) |line| {
