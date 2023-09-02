@@ -25,3 +25,13 @@ test "test count"{
     const result:i64 = try wordCount(reader);
     try std.testing.expectEqual(expected, result);
 }
+
+test "test empty"{
+    var file = try std.fs.cwd().openFile("./example/empty.txt", .{});
+    defer file.close();
+    var reader = file.reader();
+    
+    const expected:i64 = 0;
+    const result:i64 = try wordCount(reader);
+    try std.testing.expectEqual(expected, result);
+}
