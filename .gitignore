@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+zig-cache/
+zig-cache/*
+
 # Object files
 *.o
 *.ko
