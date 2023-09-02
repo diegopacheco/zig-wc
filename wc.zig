@@ -8,7 +8,7 @@ pub fn main() !void{
         _ = line;
         count += 1;
     }
-    std.debug.print("lines {}", .{count});
+    std.debug.print("{d}", .{count});
 }
 
 test "happyPath" {
