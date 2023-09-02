@@ -39,6 +39,6 @@ test "test empty"{
     var reader = file.reader();
     
     const expected:i64 = 0;
-    const result:i64 = try wordCount(reader);
+    const result:i64 = try WordCounter.count(reader);
     try std.testing.expectEqual(expected, result);
 }
