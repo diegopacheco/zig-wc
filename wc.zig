@@ -10,7 +10,3 @@ pub fn main() !void{
     }
     std.debug.print("{d}", .{count});
 }
-
-test "happyPath" {
-    
-}
